@@ -1,7 +1,16 @@
 var UI = require('ui');
 var ajax = require('ajax');
-var URL = 'http://username:password@url.com/nphControlCamera?Resolution=160x120&Direction=';
-var directions = {'left':'PanLeft', 'right':'PanRight', 'up':'TiltUp', 'down':'TiltDown'};
+var protocol = ''; //Insert connection protocol (HTTP/HTTPS) here
+var username = ''; //Insert username here
+var password = ''; //Insert password here
+var URL = ''; //Insert control URL for the directions here, which should also include all GET data that should be sent by default
+var directions = {
+  //Insert all GET data here that is specific for the directions
+  'left':'',
+  'right':'',
+  'up':'',
+  'down':''
+};
 var card = new UI.Card({
   body: '                       UP ->\n\n     LEFT/RIGHT ->\n\n\n                 DOWN ->'
 });
@@ -28,6 +37,6 @@ card.on('longClick', 'select', function() {
 
 function controlCamera(button){
   ajax({
-    url: URL + directions[button],
+    url: protocol + '://' + username + ':' + password + '@' + URL + directions[button],
   });
 }

@@ -34,7 +34,9 @@
     "sdkVersion": "3",
     "shortName": "IP cam",
     "targetPlatforms": [
-        "aplite"
+        "aplite",
+        "basalt",
+        "chalk"
     ],
     "uuid": "202143fc-2f98-4f6b-87b8-af6ee27eea7b",
     "versionCode": 1,

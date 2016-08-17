@@ -1,16 +1,21 @@
 var UI = require('ui');
 var ajax = require('ajax');
 var Settings = require('settings');
+var Platform = require('platform');
 
 //Define configuration page
 Settings.config({
   url: 'https://stuiterveer.com/pebbleconfig/202143fc-2f98-4f6b-87b8-af6ee27eea7b/index.html'
 });
 
-//Configure the main view
-var card = new UI.Card({
-  body: '                       UP ->\n\n     LEFT/RIGHT ->\n\n\n                 DOWN ->'
-});
+//Initialize the main view
+var card = new UI.Card();
+//Create the body of the main view depending on the platform version (round models have a different screen layout)
+if (Platform.version() === 'chalk'){
+  card.body('                      UP ->\n\n             LEFT/RIGHT ->\n\n              DOWN ->');
+} else {
+  card.body('                       UP ->\n\n     LEFT/RIGHT ->\n\n\n                 DOWN ->');
+}
 //Display main view
 card.show();
 

@@ -11,8 +11,6 @@ Settings.config({
 var card = new UI.Card({
   body: '                       UP ->\n\n     LEFT/RIGHT ->\n\n\n                 DOWN ->'
 });
-// Disable the action bar
-card.action(false);
 //Display main view
 card.show();
 
